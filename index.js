@@ -137,17 +137,30 @@ app.post(
   }
 )
 
-//place holder pages for success and failure callback urls when opening wallets from the phone
+//place holder pages for success callback urls when opening wallets from the phone
 
 app.get("/success", express.json({ type: "*/*" }), async (req, res) => {
   res.send(
-    "Please close this window and open the app to complete the transaction."
+    <div style="text-align: center;">
+      <div style="width: 500px; margin: 0 auto; background: #000; color: #fff;">
+        <h2>
+          Please close this window and open the app to complete the transaction.
+        </h2>
+      </div>
+    </div>
   )
 })
 
+//place holder pages for failure callback urls when opening wallets from the phone
 app.get("/failure", express.json({ type: "*/*" }), async (req, res) => {
   res.send(
-    "Please close this window and open the app to complete the transaction."
+    <div style="text-align: center;">
+      <div style="width: 500px; margin: 0 auto; background: #000; color: #fff;">
+        <h2>
+          Please close this window and open the app to complete the transaction.
+        </h2>
+      </div>
+    </div>
   )
 })
 
