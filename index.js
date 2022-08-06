@@ -141,12 +141,10 @@ app.post(
 
 app.get("/success", express.json({ type: "*/*" }), async (req, res) => {
   res.send(
-    '<<div style="text-align: center;">' +
-      '<div style="width: 500px; margin: 0 auto; background: #000; color: #fff;">' +
+    '<div style="text-align: center margin: 0 auto;">' +
       "<h1>" +
       "Please close this window and open the app to complete the transaction." +
       "</h1>" +
-      "</div>" +
       "</div>"
   )
 })
@@ -155,7 +153,7 @@ app.get("/success", express.json({ type: "*/*" }), async (req, res) => {
 app.get("/failure", express.json({ type: "*/*" }), async (req, res) => {
   res.send(
     '<<div style="text-align: center;">' +
-      '<div style="width: 500px; margin: 0 auto; background: #000; color: #fff;">' +
+      '<div style="margin: 0 auto; background: #000; color: #fff;">' +
       "<h1>" +
       "Please close this window and open the app to complete the transaction." +
       "</h1>" +
