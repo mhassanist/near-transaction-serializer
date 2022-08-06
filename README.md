@@ -3,6 +3,7 @@
 ## Introduction
 We are on a mission to build a Flutter library to help Flutter developers build mobile apps for the [NEAR Protocol](https://near.org). We were unable to port all of the functionality to Dart at this time, so we have decided to host this project online and temporarily offer some of the functionality to any mobile developers.
 
+The deployed version of this repo can be found, and used, at [this url](https://near-transaction-serializer.herokuapp.com)
 
 ## Current Available Features
 These 2 functions to be written in dart later.
