@@ -141,7 +141,7 @@ app.post(
 
 app.get("/success", express.json({ type: "*/*" }), async (req, res) => {
   res.send(
-    '<div style="text-align: center margin: 0 auto;">' +
+    '<div style="width:400px; text-align: center ;margin: 0 auto;">' +
       "<h1>" +
       "Please close this window and open the app to complete the transaction." +
       "</h1>" +
@@ -152,12 +152,10 @@ app.get("/success", express.json({ type: "*/*" }), async (req, res) => {
 //place holder pages for failure callback urls when opening wallets from the phone
 app.get("/failure", express.json({ type: "*/*" }), async (req, res) => {
   res.send(
-    '<<div style="text-align: center;">' +
-      '<div style="margin: 0 auto; background: #000; color: #fff;">' +
+    '<div style="width:400px; text-align: center ;margin: 0 auto;">' +
       "<h1>" +
       "Please close this window and open the app to complete the transaction." +
       "</h1>" +
-      "</div>" +
       "</div>"
   )
 })
