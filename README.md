@@ -5,11 +5,12 @@ We are on a mission to build a Flutter library to help Flutter developers build 
 
 
 ## Current Available Features
+** These 2 functions to be exported to dart later.
 
-- Serialize Transaction 
+### Serialize Transaction 
 Given the transaction details like sender, receiver, publick key,... , this call will decode serialzie the transaction object and return it back to you. 
 
-- serializeSignedTransaction
+### serializeSignedTransaction
 Given the signed version of the transaction including transaction details like sender, receiver, publick key,... , this call will decode serialzie the transaction object and return it back to you. 
 
 
