@@ -157,7 +157,7 @@ app.get("/success", express.json({ type: "*/*" }), async (req, res) => {
   //   "</div>"
   // )
   res.send(
-    Pages.getWalletConnectionPage(true)
+    pages.getWalletConnectionPage(true)
   );
 })
 
