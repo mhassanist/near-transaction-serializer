@@ -148,24 +148,30 @@ app.post(
 //place holder pages for success callback urls when opening wallets from the phone
 
 app.get("/success", express.json({ type: "*/*" }), async (req, res) => {
+  // res.send(
+  //   '<div style="width:400px; text-align: center ;margin: 0 auto;">' +
+  //   "<h1>" +
+  //   "Please close this window and open the app to complete the transaction." +
+  //   "</h1>" +
+  //   "</div>"
+  // )
   res.send(
-    '<div style="width:400px; text-align: center ;margin: 0 auto;">' +
-    "<h1>" +
-    "Please close this window and open the app to complete the transaction." +
-    "</h1>" +
-    "</div>"
-  )
+    Pages.getWalletConnectionPage(true)
+  );
 })
 
 //place holder pages for failure callback urls when opening wallets from the phone
 app.get("/failure", express.json({ type: "*/*" }), async (req, res) => {
+  // res.send(
+  //   '<div style="width:400px; text-align: center ;margin: 0 auto;">' +
+  //   "<h1>" +
+  //   "Please close this window and open the app to complete the transaction." +
+  //   "</h1>" +
+  //   "</div>"
+  // )
   res.send(
-    '<div style="width:400px; text-align: center ;margin: 0 auto;">' +
-    "<h1>" +
-    "Please close this window and open the app to complete the transaction." +
-    "</h1>" +
-    "</div>"
-  )
+    Pages.getWalletConnectionPage(false)
+  );
 })
 
 app.listen(port, () => console.log(`Waiting for requests on port ${port}!`))
