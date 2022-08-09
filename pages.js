@@ -17,7 +17,7 @@ module.exports = {
                     --point: ` + bgColor + `;
                     --point-light: lighten(var(--point), 5%);
                     --ratio: 1.618;
-                    --card_width: 250px;
+                    --card_width: 700px;
                     --card_height: var(--card_width) * var(--ratio);
                     --card_padding: 20px;
                     --card-bgcolor: white;
@@ -100,7 +100,7 @@ module.exports = {
                     margin: 0px;
                     padding: var(--card_head_padding);
                     font-family: 'Noto Sans KR', sans-serif;
-                    font-size: 30px;
+                    font-size: 70px;
                     color: var(--black);
                 }
 
@@ -110,7 +110,7 @@ module.exports = {
                     font-weight: 100;
                     letter-spacing: -0.25px;
                     line-height: 1.25;
-                    font-size: 16px;
+                    font-size: 30px;
                     color: --black;
 
                     -webkit-animation-name: p-show;
@@ -215,7 +215,7 @@ module.exports = {
                 <div class="card">
                 <h2>` + title + `</h2>
                 <hr />
-                <p` + message + `
+                <p>` + message + `
                 </p>
                 </div>
             </div>
