@@ -1,5 +1,5 @@
-class Pages{
-    static getWalletConnectionPage(hasConnectedSuccessfully){
+module.exports = {
+    getWalletConnectionPage: function (hasConnectedSuccessfully) {
         bgColor = 'salmon';
         title = 'Wallet Connection Failed!';
         message = 'Please make sure you complete the wallet connection process';
@@ -222,5 +222,5 @@ class Pages{
 
             </html>
         `;
-    }
-}
+    },
+};

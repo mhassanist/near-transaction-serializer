@@ -1,3 +1,4 @@
+const pages = require("./pages")
 const nearAPI = require("near-api-js")
 const sha256 = require("js-sha256")
 const express = require("express")
@@ -170,7 +171,7 @@ app.get("/failure", express.json({ type: "*/*" }), async (req, res) => {
   //   "</div>"
   // )
   res.send(
-    Pages.getWalletConnectionPage(false)
+    pages.getWalletConnectionPage(false)
   );
 })
 
