@@ -30,8 +30,8 @@ app.post(
 
       // constructs actions that will be passed to the createTransaction method below
       actions = null
-      const amount = nearAPI.utils.format.parseNearAmount(amountString)
       if (action == "transfer") {
+        const amount = nearAPI.utils.format.parseNearAmount(amountString)
         actions = [nearAPI.transactions.transfer(amount)]
       } else if (action == "function_call") {
         actions = [
@@ -39,7 +39,7 @@ app.post(
             methodName,
             methodArgs,
             DEFAULT_FUNC_CALL_GAS,
-            amount
+            0
           ),
         ]
       }
@@ -94,9 +94,9 @@ app.post(
 
       // constructs actions that will be passed to the createTransaction method below
       //currently supports function call only.
-      const amount = nearAPI.utils.format.parseNearAmount(amountString)
       actions = null
       if (action == "transfer") {
+        const amount = nearAPI.utils.format.parseNearAmount(amountString)
         actions = [nearAPI.transactions.transfer(amount)]
       } else if (action == "function_call") {
         actions = [
@@ -104,7 +104,7 @@ app.post(
             methodName,
             methodArgs,
             DEFAULT_FUNC_CALL_GAS,
-            amount
+            0
           ),
         ]
       }
