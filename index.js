@@ -26,13 +26,12 @@ app.post(
       nonce = req.body.nonce
 
       const publicKey = PublicKey.from(publicKeyString)
-      // console.log('Public Key: ' + base_encode(publicKey));
+      // console.log('Public Key: ' + base_encode(publicKey));/
 
       // constructs actions that will be passed to the createTransaction method below
-      //currently supports function call only.
       actions = null
+      const amount = nearAPI.utils.format.parseNearAmount(amountString)
       if (action == "transfer") {
-        const amount = nearAPI.utils.format.parseNearAmount(amountString)
         actions = [nearAPI.transactions.transfer(amount)]
       } else if (action == "function_call") {
         actions = [
@@ -40,13 +39,13 @@ app.post(
             methodName,
             methodArgs,
             DEFAULT_FUNC_CALL_GAS,
-            0
+            amount
           ),
         ]
       }
 
       // converts a recent block hash into an array of bytes
-      // this hash was retrieved earlier when creating the accessKey (Line 26)
+      // this hash was retrieved earlier
       // this is required to prove the tx was recently constructed (within 24hrs)
       const recentBlockHash = nearAPI.utils.serialize.base_decode(blockHash)
 
@@ -95,9 +94,9 @@ app.post(
 
       // constructs actions that will be passed to the createTransaction method below
       //currently supports function call only.
+      const amount = nearAPI.utils.format.parseNearAmount(amountString)
       actions = null
       if (action == "transfer") {
-        const amount = nearAPI.utils.format.parseNearAmount(amountString)
         actions = [nearAPI.transactions.transfer(amount)]
       } else if (action == "function_call") {
         actions = [
@@ -105,13 +104,13 @@ app.post(
             methodName,
             methodArgs,
             DEFAULT_FUNC_CALL_GAS,
-            0
+            amount
           ),
         ]
       }
 
       // converts a recent block hash into an array of bytes
-      // this hash was retrieved earlier when creating the accessKey (Line 26)
+      // this hash was retrieved earlier
       // this is required to prove the tx was recently constructed (within 24hrs)
       const recentBlockHash = nearAPI.utils.serialize.base_decode(blockHash)
 
@@ -127,7 +126,6 @@ app.post(
       const signatureArray = Object.values(signatureDictionary)
       const signatureUint8Array = Uint8Array.from(signatureArray)
 
-      // now we can sign the transaction :)
       const signedTransaction = new nearAPI.transactions.SignedTransaction({
         transaction,
         signature: new nearAPI.transactions.Signature({
@@ -149,13 +147,6 @@ app.post(
 //place holder pages for success callback urls when opening wallets from the phone
 
 app.get("/success", express.json({ type: "*/*" }), async (req, res) => {
-  // res.send(
-  //   '<div style="width:400px; text-align: center ;margin: 0 auto;">' +
-  //   "<h1>" +
-  //   "Please close this window and open the app to complete the transaction." +
-  //   "</h1>" +
-  //   "</div>"
-  // )
   res.send(
     pages.getWalletConnectionPage(true)
   );
@@ -163,13 +154,6 @@ app.get("/success", express.json({ type: "*/*" }), async (req, res) => {
 
 //place holder pages for failure callback urls when opening wallets from the phone
 app.get("/failure", express.json({ type: "*/*" }), async (req, res) => {
-  // res.send(
-  //   '<div style="width:400px; text-align: center ;margin: 0 auto;">' +
-  //   "<h1>" +
-  //   "Please close this window and open the app to complete the transaction." +
-  //   "</h1>" +
-  //   "</div>"
-  // )
   res.send(
     pages.getWalletConnectionPage(false)
   );
